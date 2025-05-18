@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Trust me</title>
+  <title>Surprise!</title>
   <style>
     body {
       background-color: black;
@@ -11,41 +11,30 @@
       font-family: sans-serif;
       margin-top: 100px;
     }
-    button {
-      padding: 20px;
-      font-size: 24px;
-      background-color: #444;
-      color: white;
-      border: none;
-      border-radius: 10px;
-      cursor: pointer;
-    }
-    #surprise {
-      display: none;
-      margin-top: 30px;
-    }
     img {
       width: 300px;
+    }
+    audio {
+      display: none;
     }
   </style>
 </head>
 <body>
-  <h1>Do you trust me?</h1>
-  <button onclick="startPrank()">Trust me</button>
+  <h1>Surprise! 😜</h1>
+  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnhnd2U2cHc3NmUwYjZxb3M5ZHQ3cWozN3p2bzY5NmZqbnVnOHV5biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XbghUXI2kKX0U/giphy.gif" alt="GIF sorpresa">
 
-  <div id="surprise">
-<audio controls autoplay loop>
-  <source src="pagina.mp3" type="audio/mpeg">
-</audio>
-    <p>Surprise! 😄</p>
-    <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Funny GIF">
-  </div>
+  <audio id="myAudio" autoplay loop>
+    <source src="pagina.mp3" type="audio/mpeg">
+  </audio>
 
   <script>
-    function startPrank() {
-      document.querySelector("button").style.display = "none";
-      document.getElementById("surprise").style.display = "block";
-    }
+    // Intenta reproducir el audio en cuanto se carga la página
+    window.addEventListener('DOMContentLoaded', function () {
+      const audio = document.getElementById('myAudio');
+      audio.play().catch((e) => {
+        console.log('Autoplay bloqueado por el navegador:', e);
+      });
+    });
   </script>
 </body>
 </html>
