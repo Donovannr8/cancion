@@ -30,17 +30,9 @@
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       const audio = document.getElementById('myAudio');
-      const playPromise = audio.play();
-
-      if (playPromise !== undefined) {
-        playPromise
-          .then(() => {
-            // Reproducción automática exitosa
-          })
-          .catch((error) => {
-            console.warn('Autoplay bloqueado por el navegador. El usuario debe interactuar.');
-          });
-      }
+      audio.play().catch((e) => {
+        console.warn('Autoplay bloqueado por el navegador:', e);
+      });
     });
   </script>
 </body>
