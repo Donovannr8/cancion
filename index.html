@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Surprise!</title>
+  <title>Do you trust me?</title>
   <style>
     body {
       background-color: black;
@@ -10,6 +10,19 @@
       text-align: center;
       font-family: sans-serif;
       margin-top: 100px;
+    }
+    button {
+      padding: 20px;
+      font-size: 24px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #surprise {
+      display: none;
+      margin-top: 30px;
     }
     img {
       width: 300px;
@@ -20,20 +33,28 @@
   </style>
 </head>
 <body>
-  <h1>Surprise! 😜</h1>
-  <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnhnd2U2cHc3NmUwYjZxb3M5ZHQ3cWozN3p2bzY5NmZqbnVnOHV5biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XbghUXI2kKX0U/giphy.gif" alt="GIF sorpresa">
+  <h1>Do you trust me?</h1>
+  <button onclick="startPrank()">Trust me</button>
 
-  <audio id="myAudio" autoplay loop>
+  <div id="surprise">
+    <p>Surprise! 😜</p>
+    <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExbnhnd2U2cHc3NmUwYjZxb3M5ZHQ3cWozN3p2bzY5NmZqbnVnOHV5biZlcD12MV9naWZzX3NlYXJjaCZjdD1n/XbghUXI2kKX0U/giphy.gif" alt="GIF sorpresa">
+  </div>
+
+  <audio id="myAudio" loop>
     <source src="pagina.mp3" type="audio/mpeg">
   </audio>
 
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
-      const audio = document.getElementById('myAudio');
+    function startPrank() {
+      document.querySelector("button").style.display = "none";
+      document.getElementById("surprise").style.display = "block";
+      const audio = document.getElementById("myAudio");
       audio.play().catch((e) => {
         console.warn('Autoplay bloqueado por el navegador:', e);
       });
-    });
+    }
   </script>
 </body>
 </html>
+
