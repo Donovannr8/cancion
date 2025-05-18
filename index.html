@@ -28,12 +28,19 @@
   </audio>
 
   <script>
-    // Intenta reproducir el audio en cuanto se carga la página
-    window.addEventListener('DOMContentLoaded', function () {
+    window.addEventListener('DOMContentLoaded', () => {
       const audio = document.getElementById('myAudio');
-      audio.play().catch((e) => {
-        console.log('Autoplay bloqueado por el navegador:', e);
-      });
+      const playPromise = audio.play();
+
+      if (playPromise !== undefined) {
+        playPromise
+          .then(() => {
+            // Reproducción automática exitosa
+          })
+          .catch((error) => {
+            console.warn('Autoplay bloqueado por el navegador. El usuario debe interactuar.');
+          });
+      }
     });
   </script>
 </body>
