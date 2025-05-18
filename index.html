@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Trust me</title>
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: sans-serif;
+      margin-top: 100px;
+    }
+    button {
+      padding: 20px;
+      font-size: 24px;
+      background-color: #444;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    #surprise {
+      display: none;
+      margin-top: 30px;
+    }
+    img {
+      width: 300px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Do you trust me?</h1>
+  <button onclick="startPrank()">Trust me</button>
+
+  <div id="surprise">
+    <audio autoplay loop>
+      <source src="pagina.mp3" type="audio/mpeg">
+    </audio>
+    <p>Surprise! 😄</p>
+    <img src="https://media.giphy.com/media/3o7aD2saalBwwftBIY/giphy.gif" alt="Funny GIF">
+  </div>
+
+  <script>
+    function startPrank() {
+      document.querySelector("button").style.display = "none";
+      document.getElementById("surprise").style.display = "block";
+    }
+  </script>
+</body>
+</html>
